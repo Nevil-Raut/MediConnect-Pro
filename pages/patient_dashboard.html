@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard - MediConnect Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fmediconnec1123back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+
+<body class="bg-background">
+    <!-- Emergency Care Button - Always Visible -->
+    <div class="fixed top-4 right-4 z-50">
+        <a href="emergency_care_portal.html"
+            class="bg-error text-white px-4 py-2 rounded-full font-medium shadow-lg hover:bg-red-600 transition-all duration-250 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    clip-rule="evenodd" />
+            </svg>
+            Emergency Care
+        </a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="bg-white border-b border-border shadow-medical-light">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    <span class="ml-3 text-xl font-semibold text-text-primary">MediConnect Pro</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-medical">Home</a>
+                    <a href="provider_directory.html"
+                        class="text-text-secondary hover:text-primary transition-medical">Find Providers</a>
+                    <a href="health_assessment_center.html"
+                        class="text-text-secondary hover:text-primary transition-medical">Health Assessment</a>
+                    <a href="consultation_platform.html"
+                        class="text-text-secondary hover:text-primary transition-medical">Consultations</a>
+                    <a href="patient_dashboard.html" class="text-primary font-medium">Patient Portal</a>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button
+                            class="flex items-center gap-2 text-text-secondary hover:text-primary transition-medical">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 17h5l-5 5v-5zM9 7H4l5-5v5z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Sarah Johnson" class="w-8 h-8 rounded-full object-cover" loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <span class="text-sm font-medium text-text-primary">Sarah Johnson</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-text-secondary hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-text-primary">Welcome back, Sarah!</h1>
+                    <p class="text-text-secondary mt-1">Here's your health overview for today, October 10, 2025</p>
+                </div>
+                <div class="mt-4 sm:mt-0">
+                    <a href="consultation_platform.html" class="btn-primary">Book New Consultation</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">Quick Actions</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="consultation_platform.html"
+                    class="card p-4 hover:shadow-medical-medium transition-medical group">
+                    <div class="text-center">
+                        <div
+                            class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary-200 transition-medical">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary text-sm">Book Appointment</h3>
+                    </div>
+                </a>
+
+                <button class="card p-4 hover:shadow-medical-medium transition-medical group">
+                    <div class="text-center">
+                        <div
+                            class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-accent-200 transition-medical">
+                            <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary text-sm">Refill Prescription</h3>
+                    </div>
+                </button>
+
+                <button class="card p-4 hover:shadow-medical-medium transition-medical group">
+                    <div class="text-center">
+                        <div
+                            class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-secondary-200 transition-medical">
+                            <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary text-sm">Message Provider</h3>
+                    </div>
+                </button>
+
+                <a href="health_assessment_center.html"
+                    class="card p-4 hover:shadow-medical-medium transition-medical group">
+                    <div class="text-center">
+                        <div
+                            class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-warning/20 transition-medical">
+                            <svg class="w-6 h-6 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary text-sm">Health Check</h3>
+                    </div>
+
+                </a>
+            </div>
+        </section>
+
+        <!-- Main Dashboard Grid -->
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Health Metrics Overview -->
+                <section class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Health Metrics</h2>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">View All</button>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Blood Pressure -->
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-1">Blood Pressure</h3>
+                            <p class="text-2xl font-bold text-text-primary">120/80</p>
+                            <p class="text-sm text-accent">Normal</p>
+                        </div>
+
+                        <!-- Heart Rate -->
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-1">Heart Rate</h3>
+                            <p class="text-2xl font-bold text-text-primary">72 bpm</p>
+                            <p class="text-sm text-accent">Good</p>
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-1">Weight</h3>
+                            <p class="text-2xl font-bold text-text-primary">145 lbs</p>
+                            <p class="text-sm text-accent">On Track</p>
+                        </div>
+                    </div>
+
+                    <!-- Health Goals Progress -->
+                    <div class="mt-8 pt-6 border-t border-border">
+                        <h3 class="font-medium text-text-primary mb-4">Health Goals Progress</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Daily Steps</span>
+                                    <span class="text-sm text-text-secondary">8,245 / 10,000</span>
+                                </div>
+                                <div class="w-full bg-surface rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Water Intake</span>
+                                    <span class="text-sm text-text-secondary">6 / 8 glasses</span>
+                                </div>
+                                <div class="w-full bg-surface rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Appointments -->
+                <section class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Upcoming Appointments</h2>
+                        <a href="consultation_platform.html"
+                            class="text-primary hover:text-primary-700 text-sm font-medium">Book New</a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Appointment 1 -->
+                        <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-text-primary">Dr. Michael Chen</h3>
+                                    <p class="text-sm text-text-secondary">Cardiology Consultation</p>
+                                    <p class="text-sm text-text-secondary">Oct 15, 2025 at 2:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-3 py-1 text-sm bg-primary text-white rounded hover:bg-primary-700 transition-medical">Join</button>
+                                <button
+                                    class="px-3 py-1 text-sm border border-border rounded hover:bg-surface transition-medical">Reschedule</button>
+                            </div>
+                        </div>
+
+                        <!-- Appointment 2 -->
+                        <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-text-primary">Dr. Emily Rodriguez</h3>
+                                    <p class="text-sm text-text-secondary">Annual Physical Exam</p>
+                                    <p class="text-sm text-text-secondary">Oct 22, 2025 at 10:30 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-3 py-1 text-sm bg-primary text-white rounded hover:bg-primary-700 transition-medical">Join</button>
+                                <button
+                                    class="px-3 py-1 text-sm border border-border rounded hover:bg-surface transition-medical">Reschedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Health Timeline -->
+                <section class="card p-6">
+                    <h2 class="text-xl font-semibold text-text-primary mb-6">Recent Health Activity</h2>
+
+                    <div class="space-y-6">
+                        <!-- Timeline Item 1 -->
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Prescription Filled</h3>
+                                <p class="text-sm text-text-secondary">Lisinopril 10mg - 30 day supply</p>
+                                <p class="text-xs text-text-secondary">Oct 8, 2025</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Video Consultation</h3>
+                                <p class="text-sm text-text-secondary">Follow-up with Dr. Chen - Blood pressure check
+                                </p>
+                                <p class="text-xs text-text-secondary">Oct 5, 2025</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Lab Results</h3>
+                                <p class="text-sm text-text-secondary">Complete Blood Count - All values normal</p>
+                                <p class="text-xs text-text-secondary">Oct 1, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- Medication Reminders -->
+                <section class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-semibold text-text-primary">Today's Medications</h2>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">Manage All</button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Medication 1 -->
+                        <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-text-primary text-sm">Lisinopril</h3>
+                                    <p class="text-xs text-text-secondary">10mg - Morning</p>
+                                </div>
+                            </div>
+                            <button class="w-6 h-6 bg-accent text-white rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Medication 2 -->
+                        <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-warning/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-text-primary text-sm">Vitamin D3</h3>
+                                    <p class="text-xs text-text-secondary">2000 IU - Evening</p>
+                                </div>
+                            </div>
+                            <button
+                                class="w-6 h-6 border-2 border-border rounded-full flex items-center justify-center hover:bg-surface transition-medical">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-accent-50 rounded-lg">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <p class="text-sm text-accent font-medium">Reminder: Take Vitamin D3 at 8:00 PM</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Family Health Management -->
+                <section class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-semibold text-text-primary">Family Health</h2>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">Add Member</button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Family Member 1 -->
+                        <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="John Johnson" class="w-8 h-8 rounded-full object-cover" loading="lazy"
+                                    onerror="this.src='https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg'; this.onerror=null;" />
+                                <div>
+                                    <h3 class="font-medium text-text-primary text-sm">John Johnson</h3>
+                                    <p class="text-xs text-text-secondary">Spouse</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                <span class="text-xs text-text-secondary">Healthy</span>
+                            </div>
+                        </div>
+
+                        <!-- Family Member 2 -->
+                        <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/1068205/pexels-photo-1068205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt="Emma Johnson" class="w-8 h-8 rounded-full object-cover" loading="lazy"
+                                    onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div>
+                                    <h3 class="font-medium text-text-primary text-sm">Emma Johnson</h3>
+                                    <p class="text-xs text-text-secondary">Daughter (12)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-warning rounded-full"></div>
+                                <span class="text-xs text-text-secondary">Check-up due</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Insurance & Billing -->
+                <section class="card p-6">
+                    <h2 class="text-lg font-semibold text-text-primary mb-6">Insurance & Billing</h2>
+
+                    <div class="space-y-4">
+                        <!-- Insurance Card -->
+                        <div class="p-4 bg-gradient-to-r from-primary to-primary-700 rounded-lg text-white">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="font-medium">Blue Cross Blue Shield</h3>
+                                    <p class="text-sm opacity-90">PPO Plan</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm opacity-90">Member ID</p>
+                                    <p class="font-mono text-sm">ABC123456789</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <p class="text-sm opacity-90">Group #: GRP789</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm opacity-90">Effective: 01/01/2025</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Bills -->
+                        <div>
+                            <h3 class="font-medium text-text-primary mb-3">Recent Bills</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center p-3 bg-surface rounded">
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Consultation - Dr. Chen</p>
+                                        <p class="text-xs text-text-secondary">Oct 5, 2025</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-accent">Paid</p>
+                                        <p class="text-xs text-text-secondary">$25.00</p>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-surface rounded">
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Lab Work</p>
+                                        <p class="text-xs text-text-secondary">Oct 1, 2025</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-warning">Pending</p>
+                                        <p class="text-xs text-text-secondary">$85.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Health Insights -->
+                <section class="card p-6">
+                    <h2 class="text-lg font-semibold text-text-primary mb-6">Health Insights</h2>
+
+                    <div class="space-y-4">
+                        <!-- Insight 1 -->
+                        <div class="p-4 bg-accent-50 rounded-lg">
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-8 h-8 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-text-primary text-sm">Great Progress!</h3>
+                                    <p class="text-xs text-text-secondary mt-1">Your blood pressure has been
+                                        consistently in the normal range for 3 months.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Insight 2 -->
+                        <div class="p-4 bg-primary-50 rounded-lg">
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-text-primary text-sm">Reminder</h3>
+                                    <p class="text-xs text-text-secondary mt-1">Annual mammogram screening is due next
+                                        month.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        <span class="ml-2 text-xl font-semibold">MediConnect Pro</span>
+                    </div>
+                    <p class="text-slate-400">
+                        Quality healthcare, wherever you are. Making professional medical care accessible anytime,
+                        anywhere.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="homepage.html" class="text-slate-400 hover:text-white transition-medical">Home</a>
+                        </li>
+                        <li><a href="provider_directory.html"
+                                class="text-slate-400 hover:text-white transition-medical">Find Providers</a></li>
+                        <li><a href="health_assessment_center.html"
+                                class="text-slate-400 hover:text-white transition-medical">Health Assessment</a></li>
+                        <li><a href="emergency_care_portal.html"
+                                class="text-slate-400 hover:text-white transition-medical">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="consultation_platform.html"
+                                class="text-slate-400 hover:text-white transition-medical">Virtual Consultations</a>
+                        </li>
+                        <li><a href="patient_dashboard.html"
+                                class="text-slate-400 hover:text-white transition-medical">Patient Portal</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="text-slate-400 hover:text-white transition-medical">Prescription Management</a>
+                        </li>
+                        <li><a href="javascript:void(0)"
+                                class="text-slate-400 hover:text-white transition-medical">Health Monitoring</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li>1-800-MEDICONNECT</li>
+                        <li>support@mediconnectpro.com</li>
+                        <li>Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 MediConnect Pro. All Rights Reserved. | HIPAA Compliant | Privacy Policy | Terms of
+                    Service</p>
+            </div>
+        </div>
+    </footer>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>

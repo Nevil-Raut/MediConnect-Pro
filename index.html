@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediConnect Pro - Healthcare Platform</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- Immediate redirect mechanisms -->
+  <meta http-equiv="refresh" content="0; url=pages/homepage.html" />
+  <script>
+    // Hard redirect as a JS fallback
+    (function() {
+      var target = 'pages/homepage.html';
+      if (typeof window !== 'undefined') {
+        window.location.replace(target);
+      }
+    })();
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .redirect-container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 420px;
+      width: 92%;
+    }
+    .logo {
+      font-size: 2.2em;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    .tagline { color: #7f8c8d; margin-bottom: 20px; font-size: 1.05em; }
+    .manual-link { display: inline-block; margin-top: 16px; padding: 10px 20px; background-color: #3498db; color: #fff; text-decoration: none; border-radius: 6px; }
+    .manual-link:hover { background-color: #2980b9; }
+  </style>
+</head>
+<body>
+  <div class="redirect-container">
+    <div class="logo">MediConnect Pro</div>
+    <div class="tagline">Redirecting to homepage...</div>
+    <noscript>
+      JavaScript is disabled. Use this link to proceed:
+      <div style="margin-top: 10px"><a class="manual-link" href="pages/homepage.html">Continue to Homepage</a></div>
+    </noscript>
+  </div>
+</body>
+</html>

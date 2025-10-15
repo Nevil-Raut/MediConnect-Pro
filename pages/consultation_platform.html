@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultation Platform - MediConnect Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fmediconnec1123back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+
+<body class="bg-background">
+    <!-- Emergency Care Button - Always Visible -->
+    <div class="fixed top-4 right-4 z-50">
+        <a href="emergency_care_portal.html"
+            class="bg-error text-white px-4 py-2 rounded-full font-medium shadow-lg hover:bg-red-600 transition-all duration-250 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    clip-rule="evenodd" />
+            </svg>
+            Emergency Care
+        </a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="bg-white border-b border-border shadow-medical-light">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    <span class="ml-3 text-xl font-semibold text-text-primary">MediConnect Pro</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-medical">Home</a>
+                    <a href="provider_directory.html"
+                        class="text-text-secondary hover:text-primary transition-medical">Find Providers</a>
+                    <a href="health_assessment_center.html"
+                        class="text-text-secondary hover:text-primary transition-medical">Health Assessment</a>
+                    <a href="consultation_platform.html" class="text-primary font-medium">Consultations</a>
+                    <a href="patient_dashboard.html" class="btn-primary">Patient Portal</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-text-secondary hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Consultation Interface -->
+    <div class="min-h-screen bg-surface">
+        <!-- Consultation Header -->
+        <div class="bg-white border-b border-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-semibold text-text-primary">Virtual Consultation</h1>
+                            <p class="text-text-secondary">Secure, HIPAA-compliant video consultation platform</p>
+                        </div>
+                    </div>
+
+                    <!-- Session Status -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-accent">Session Active</span>
+                        </div>
+                        <div class="text-sm text-text-secondary">
+                            Duration: <span class="font-mono">15:42</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Consultation Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="grid lg:grid-cols-4 gap-6">
+                <!-- Video Conference Area -->
+                <div class="lg:col-span-3 space-y-6">
+                    <!-- Main Video Window -->
+                    <div class="consultation-window overflow-hidden">
+                        <div class="relative bg-slate-900 aspect-video">
+                            <!-- Provider Video -->
+                            <div class="absolute inset-0">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Dr. Sarah Mitchell - Consultation" class="w-full h-full object-cover"
+                                    loading="lazy"
+                                    onerror="this.src='https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            </div>
+
+                            <!-- Patient Video (Picture-in-Picture) -->
+                            <div
+                                class="absolute bottom-4 right-4 w-48 h-36 bg-slate-800 rounded-lg overflow-hidden border-2 border-white shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Patient Video" class="w-full h-full object-cover" loading="lazy"
+                                    onerror="this.src='https://images.pixabay.com/photo/2017/06/26/02/47/person-2442565_1280.jpg'; this.onerror=null;" />
+                            </div>
+
+                            <!-- Video Controls Overlay -->
+                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                <div class="bg-black bg-opacity-50 rounded-full px-6 py-3 flex items-center space-x-4">
+                                    <!-- Microphone -->
+                                    <button
+                                        class="w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center transition-medical">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Camera -->
+                                    <button
+                                        class="w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center transition-medical">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Screen Share -->
+                                    <button
+                                        class="w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center transition-medical">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M3 4a1 1 0 011-1h12a1 1 0 011 1v4a1 1 0 01-2 0V5H5v10h4a1 1 0 110 2H4a1 1 0 01-1-1V4zm7.707 3.293a1 1 0 010 1.414L9.414 10H13a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- End Call -->
+                                    <button
+                                        class="w-12 h-12 bg-error hover:bg-red-600 rounded-full flex items-center justify-center transition-medical">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Connection Quality Indicator -->
+                            <div class="absolute top-4 left-4">
+                                <div class="bg-black bg-opacity-50 rounded-lg px-3 py-2 flex items-center space-x-2">
+                                    <div class="flex space-x-1">
+                                        <div class="w-1 h-3 bg-accent rounded-full"></div>
+                                        <div class="w-1 h-3 bg-accent rounded-full"></div>
+                                        <div class="w-1 h-3 bg-accent rounded-full"></div>
+                                        <div class="w-1 h-3 bg-slate-400 rounded-full"></div>
+                                    </div>
+                                    <span class="text-white text-sm">HD Quality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collaborative Whiteboard -->
+                    <div class="consultation-window">
+                        <div class="p-4 border-b border-border">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-semibold text-text-primary">Collaborative Whiteboard</h3>
+                                <div class="flex items-center space-x-2">
+                                    <button class="p-2 text-text-secondary hover:text-primary transition-medical">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                        </svg>
+                                    </button>
+                                    <button class="p-2 text-text-secondary hover:text-primary transition-medical">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15.586 13H14a1 1 0 01-1-1z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button class="p-2 text-text-secondary hover:text-primary transition-medical">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"
+                                                clip-rule="evenodd" />
+                                            <path fill-rule="evenodd"
+                                                d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3h4v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm2.707 4.707a1 1 0 000-1.414L5.414 7H7a1 1 0 100-2H4a1 1 0 00-1 1v3a1 1 0 102 0V7.414l1.293 1.293a1 1 0 001.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div
+                                class="bg-white border-2 border-dashed border-border rounded-lg h-64 flex items-center justify-center">
+                                <div class="text-center">
+                                    <svg class="w-12 h-12 text-text-secondary mx-auto mb-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                    <p class="text-text-secondary">Click to start drawing or sharing diagrams</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar - Tools & Information -->
+                <div class="space-y-6">
+                    <!-- Patient Information -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-text-primary mb-4">Patient Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover" loading="lazy"
+                                    onerror="this.src='https://images.pixabay.com/photo/2017/06/26/02/47/person-2442565_1280.jpg'; this.onerror=null;" />
+                                <div>
+                                    <h4 class="font-medium text-text-primary">Sarah Johnson</h4>
+                                    <p class="text-sm text-text-secondary">Age: 34 • Female</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Chief Complaint:</span>
+                                    <span class="text-sm font-medium text-text-primary">Persistent headaches</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Duration:</span>
+                                    <span class="text-sm font-medium text-text-primary">3 days</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Severity:</span>
+                                    <span class="text-sm font-medium text-warning">Moderate (6/10)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Vital Signs -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-text-primary mb-4">Real-time Vital Signs</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-error/10 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-error" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium text-text-primary">Heart Rate</span>
+                                </div>
+                                <span class="text-lg font-semibold text-text-primary">72 BPM</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium text-text-primary">Blood Pressure</span>
+                                </div>
+                                <span class="text-lg font-semibold text-text-primary">120/80</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium text-text-primary">Temperature</span>
+                                </div>
+                                <span class="text-lg font-semibold text-text-primary">98.6°F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Prescription Pad -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-text-primary mb-4">Digital Prescription</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Medication</label>
+                                <input type="text" class="input-field" placeholder="Search medications..." />
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Dosage</label>
+                                    <input type="text" class="input-field" placeholder="e.g., 500mg" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Frequency</label>
+                                    <select class="input-field">
+                                        <option>Once daily</option>
+                                        <option>Twice daily</option>
+                                        <option>Three times daily</option>
+                                        <option>As needed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Duration</label>
+                                <input type="text" class="input-field" placeholder="e.g., 7 days" />
+                            </div>
+
+                            <button class="btn-primary w-full">Add to Prescription</button>
+                        </div>
+                    </div>
+
+                    <!-- Session Notes -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-text-primary mb-4">Session Notes</h3>
+                        <div class="space-y-4">
+                            <textarea class="input-field h-32 resize-none"
+                                placeholder="AI-generated notes will appear here. You can edit and add additional observations..."></textarea>
+
+                            <div class="flex items-center space-x-2 text-sm text-text-secondary">
+                                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>Auto-save enabled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Waiting Room Modal (Hidden by default) -->
+        <div id="waitingRoom" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div class="bg-white rounded-lg shadow-medical-medium max-w-2xl w-full">
+                    <div class="p-6 border-b border-border">
+                        <h2 class="text-xl font-semibold text-text-primary">Virtual Waiting Room</h2>
+                        <p class="text-text-secondary mt-1">Please complete the pre-consultation questionnaire while you
+                            wait</p>
+                    </div>
+
+                    <div class="p-6 space-y-6">
+                        <!-- Pre-consultation Questionnaire -->
+                        <div class="space-y-4">
+                            <h3 class="font-medium text-text-primary">Pre-Consultation Health Questionnaire</h3>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">What brings you in
+                                    today?</label>
+                                <textarea class="input-field h-24 resize-none"
+                                    placeholder="Describe your symptoms or concerns..."></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">When did symptoms
+                                    start?</label>
+                                <select class="input-field">
+                                    <option>Today</option>
+                                    <option>Yesterday</option>
+                                    <option>2-3 days ago</option>
+                                    <option>1 week ago</option>
+                                    <option>More than 1 week ago</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Pain level (if
+                                    applicable)</label>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm text-text-secondary">No pain</span>
+                                    <input type="range" class="flex-1" min="0" max="10" value="0" />
+                                    <span class="text-sm text-text-secondary">Severe</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Current
+                                    medications</label>
+                                <textarea class="input-field h-20 resize-none"
+                                    placeholder="List any medications you're currently taking..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Estimated Wait Time -->
+                        <div class="bg-primary-50 p-4 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-primary">Estimated wait time: 3 minutes</p>
+                                    <p class="text-sm text-primary-700">Dr. Mitchell will be with you shortly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 border-t border-border flex justify-between">
+                        <button class="text-text-secondary hover:text-primary transition-medical">Save for
+                            Later</button>
+                        <button class="btn-primary">Submit & Continue Waiting</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post-Consultation Summary Modal (Hidden by default) -->
+        <div id="consultationSummary" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div class="bg-white rounded-lg shadow-medical-medium max-w-3xl w-full max-h-screen overflow-y-auto">
+                    <div class="p-6 border-b border-border">
+                        <h2 class="text-xl font-semibold text-text-primary">Consultation Summary</h2>
+                        <p class="text-text-secondary mt-1">Your consultation with Dr. Sarah Mitchell - October 10, 2025
+                        </p>
+                    </div>
+
+                    <div class="p-6 space-y-6">
+                        <!-- Diagnosis & Assessment -->
+                        <div>
+                            <h3 class="font-medium text-text-primary mb-3">Diagnosis & Assessment</h3>
+                            <div class="bg-surface p-4 rounded-lg">
+                                <p class="text-text-primary">Tension headaches likely caused by stress and poor sleep
+                                    patterns. No signs of serious underlying conditions.</p>
+                            </div>
+                        </div>
+
+                        <!-- Prescribed Medications -->
+                        <div>
+                            <h3 class="font-medium text-text-primary mb-3">Prescribed Medications</h3>
+                            <div class="space-y-3">
+                                <div class="border border-border rounded-lg p-4">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Ibuprofen 400mg</h4>
+                                            <p class="text-sm text-text-secondary">Take twice daily with food for 5 days
+                                            </p>
+                                        </div>
+                                        <span
+                                            class="text-sm bg-accent-100 text-accent-800 px-2 py-1 rounded">Prescribed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Care Instructions -->
+                        <div>
+                            <h3 class="font-medium text-text-primary mb-3">Care Instructions</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <p class="text-text-primary">Ensure 7-8 hours of sleep nightly</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <p class="text-text-primary">Practice stress management techniques</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <p class="text-text-primary">Stay hydrated and maintain regular meals</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-warning mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <p class="text-text-primary">Return if headaches worsen or persist beyond 1 week</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Follow-up Scheduling -->
+                        <div>
+                            <h3 class="font-medium text-text-primary mb-3">Recommended Follow-up</h3>
+                            <div class="bg-primary-50 p-4 rounded-lg">
+                                <p class="text-primary-800 mb-3">Schedule a follow-up appointment in 1 week to monitor
+                                    progress</p>
+                                <button class="btn-primary">Schedule Follow-up</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 border-t border-border flex justify-between">
+                        <button class="text-text-secondary hover:text-primary transition-medical">Download PDF</button>
+                        <div class="space-x-3">
+                            <button class="text-text-secondary hover:text-primary transition-medical">Email
+                                Summary</button>
+                            <button class="btn-primary">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        <span class="ml-2 text-xl font-semibold">MediConnect Pro</span>
+                    </div>
+                    <p class="text-slate-400">
+                        Quality healthcare, wherever you are. Making professional medical care accessible anytime,
+                        anywhere.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="homepage.html" class="text-slate-400 hover:text-white transition-medical">Home</a>
+                        </li>
+                        <li><a href="provider_directory.html"
+                                class="text-slate-400 hover:text-white transition-medical">Find Providers</a></li>
+                        <li><a href="health_assessment_center.html"
+                                class="text-slate-400 hover:text-white transition-medical">Health Assessment</a></li>
+                        <li><a href="emergency_care_portal.html"
+                                class="text-slate-400 hover:text-white transition-medical">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="consultation_platform.html"
+                                class="text-slate-400 hover:text-white transition-medical">Virtual Consultations</a>
+                        </li>
+                        <li><a href="patient_dashboard.html"
+                                class="text-slate-400 hover:text-white transition-medical">Patient Portal</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="text-slate-400 hover:text-white transition-medical">Prescription Management</a>
+                        </li>
+                        <li><a href="javascript:void(0)"
+                                class="text-slate-400 hover:text-white transition-medical">Health Monitoring</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li>1-800-MEDICONNECT</li>
+                        <li>support@mediconnectpro.com</li>
+                        <li>Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 MediConnect Pro. All Rights Reserved. | HIPAA Compliant | Privacy Policy | Terms of
+                    Service</p>
+            </div>
+        </div>
+    </footer>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>
